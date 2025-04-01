@@ -1,0 +1,23 @@
+{
+  "packageManager": "yarn@4.8.1",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "dev": "nuxt dev",
+    "build": "nuxt build --preset=vercel_edge",
+    "lint": "eslint"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.10.2",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@unocss/eslint-plugin": "^66.0.0",
+    "@unocss/nuxt": "^66.0.0",
+    "@vercel/kv": "^3.0.0",
+    "@vueuse/core": "^13.0.0",
+    "eslint": "^9.22.0",
+    "nuxt": "^3.16.1",
+    "reka-ui": "^2.1.1",
+    "sass-embedded": "^1.86.0",
+    "typescript": "^5.8.2",
+    "uuid": "^11.1.0"
+  }
+}

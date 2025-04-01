@@ -1,0 +1,5 @@
+.nuxt
+.output
+.vercel
+.yarn/install-state.gz
+node_modules

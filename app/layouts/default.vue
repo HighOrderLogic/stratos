@@ -5,7 +5,7 @@
       :class="[$style.headerShadow]"
     >
       <nuxt-link href="/" class="text-xl font-semibold">
-          Strata Management App
+        Strata Management App
       </nuxt-link>
     </header>
     <div class="mx-a pt-4 md:max-w-60ch lt-md:px-4">

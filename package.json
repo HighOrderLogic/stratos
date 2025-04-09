@@ -18,6 +18,7 @@
     "reka-ui": "^2.1.1",
     "sass-embedded": "^1.86.0",
     "typescript": "^5.8.2",
+    "unstorage": "^1.15.0",
     "uuid": "^11.1.0"
   }
 }

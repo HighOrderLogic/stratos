@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
 
   const propertiesDb = usePropertiesDb()
 
-  propertiesDb.setItem(newPropertyId, newProperty)
+  await propertiesDb.setItem(newPropertyId, newProperty)
 
   return { id: newPropertyId, ...newProperty }
 })

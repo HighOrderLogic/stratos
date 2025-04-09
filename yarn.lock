@@ -8520,6 +8520,7 @@ __metadata:
     reka-ui: "npm:^2.1.1"
     sass-embedded: "npm:^1.86.0"
     typescript: "npm:^5.8.2"
+    unstorage: "npm:^1.15.0"
     uuid: "npm:^11.1.0"
   languageName: unknown
   linkType: soft

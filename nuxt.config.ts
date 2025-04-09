@@ -2,32 +2,25 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   modules: ['@unocss/nuxt'],
-
   future: {
     compatibilityVersion: 4,
   },
-
   ssr: false,
-
   imports: {
     dirs: ['types'],
   },
-
   css: ['@fontsource-variable/inter'],
-
   nitro: {
     storage: {
-      db: {
-        driver: 'vercel-kv',
+      app: {
+        driver: 'vercelKV',
       },
     },
     devStorage: {
-      db: {
+      app: {
         driver: 'fs',
-        base: './.data/db',
+        base: '.data',
       },
     },
   },
-
-  compatibilityDate: '2025-03-31',
 })

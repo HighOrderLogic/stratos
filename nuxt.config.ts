@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
@@ -13,7 +15,8 @@ export default defineNuxtConfig({
   nitro: {
     storage: {
       app: {
-        driver: 'vercelKV',
+        driver: 'redis',
+        url: process.env.REDIS_URL,
       },
     },
     devStorage: {

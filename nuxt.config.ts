@@ -14,9 +14,7 @@ export default defineNuxtConfig({
     sourceMap: 'inline',
     storage: {
       app: {
-        driver: 'redis',
-        // eslint-disable-next-line node/prefer-global/process
-        url: process.env.REDIS_URL,
+        driver: 'upstash',
       },
     },
     devStorage: {

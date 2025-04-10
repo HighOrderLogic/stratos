@@ -8530,6 +8530,7 @@ __metadata:
     nuxt: "npm:^3.16.1"
     reka-ui: "npm:^2.1.1"
     sass-embedded: "npm:^1.86.0"
+    std-env: "npm:^3.9.0"
     typescript: "npm:^5.8.2"
     unstorage: "npm:^1.15.0"
     uuid: "npm:^11.1.0"
@@ -9168,6 +9169,13 @@ __metadata:
   version: 3.8.1
   resolution: "std-env@npm:3.8.1"
   checksum: 10c0/e9b19cca6bc6f06f91607db5b636662914ca8ec9efc525a99da6ec7e493afec109d3b017d21d9782b4369fcfb2891c7c4b4e3c60d495fdadf6861ce434e07bf8
+  languageName: node
+  linkType: hard
+
+"std-env@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "std-env@npm:3.9.0"
+  checksum: 10c0/4a6f9218aef3f41046c3c7ecf1f98df00b30a07f4f35c6d47b28329bc2531eef820828951c7d7b39a1c5eb19ad8a46e3ddfc7deb28f0a2f3ceebee11bab7ba50
   languageName: node
   linkType: hard
 

@@ -1,6 +1,5 @@
-import process from 'node:process'
-
 import { defineNuxtConfig } from 'nuxt/config'
+import { env } from 'std-env'
 
 export default defineNuxtConfig({
   modules: ['@unocss/nuxt'],
@@ -16,7 +15,7 @@ export default defineNuxtConfig({
     storage: {
       app: {
         driver: 'redis',
-        url: process.env.REDIS_URL,
+        url: env.REDIS_URL,
       },
     },
     devStorage: {

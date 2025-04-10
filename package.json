@@ -7,20 +7,18 @@
     "lint": "eslint"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.10.2",
+    "@antfu/eslint-config": "^4.12.0",
     "@fontsource-variable/inter": "^5.2.5",
     "@types/node": "^22.14.0",
     "@unocss/eslint-plugin": "^66.0.0",
     "@unocss/nuxt": "^66.0.0",
-    "@vercel/kv": "^3.0.0",
-    "@vueuse/core": "^13.0.0",
-    "eslint": "^9.22.0",
+    "eslint": "^9.24.0",
     "ioredis": "^5.6.0",
-    "nuxt": "^3.16.1",
-    "reka-ui": "^2.1.1",
-    "sass-embedded": "^1.86.0",
+    "nuxt": "^3.16.2",
+    "reka-ui": "^2.2.0",
+    "sass-embedded": "^1.86.3",
     "std-env": "^3.9.0",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "unstorage": "^1.15.0",
     "uuid": "^11.1.0"
   }

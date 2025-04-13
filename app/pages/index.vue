@@ -1,10 +1,15 @@
 <script setup lang="ts">
 const { data: properties } = await useFetch('/api/properties', { method: 'get' })
+properties.value?.sort((a, b) => {
+  const dateA = new Date(a.dateCreated).getTime()
+  const dateB = new Date(b.dateCreated).getTime()
+  return dateB - dateA
+})
 </script>
 
 <template>
   <div v-if="properties && properties.length > 0" class="gap-4 divide-gray">
-    <template v-for="property in properties.toSorted((a, b) => Number(a.id > b.id))" :key="property.id">
+    <template v-for="property in properties" :key="property.id">
       <div class="my-4 flex items-center border rd-md border-solid p-4">
         <nuxt-link
           class="m-4 aspect-square h-full w-auto flex items-center object-contain"

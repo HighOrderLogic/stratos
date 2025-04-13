@@ -27,7 +27,7 @@ onMounted(async () => {
       <p>Owner: {{ property.owner }}</p>
       <p>Type: {{ property.type }}</p>
       <p>Address: {{ property.address }}</p>
-      <p>Date created: {{ property.dateCreated.toUTCString }}</p>
+      <p>Date created: {{ property.dateCreated.toUTCString() }}</p>
       <p>Sold: {{ property.sold ? "Yes" : "No" }}</p>
     </div>
     <div v-else>

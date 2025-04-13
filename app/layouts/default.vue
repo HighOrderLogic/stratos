@@ -5,7 +5,7 @@
       :class="[$style.headerShadow]"
     >
       <nuxt-link href="/">
-        <img src="~/public/USyd.jpg" />
+        <img src="~/public/USyd.jpg">
       </nuxt-link>
     </header>
     <div class="mx-a pt-4 md:max-w-60ch lt-md:px-4">

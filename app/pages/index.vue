@@ -5,10 +5,13 @@ const { data: properties } = await useFetch('/api/properties', { method: 'get' }
 <template>
   <div v-if="properties && properties.length > 0" class="gap-4 divide-gray">
     <template v-for="property in properties.toSorted((a, b) => Number(a.id > b.id))" :key="property.id">
-      <div class="my-4 flex border border-solid p-4 rd-md items-center">
-        <nuxt-link class="m-4 aspect-square h-full w-auto flex items-center object-contain" :href="`/properties/${property.id}`">
+      <div class="my-4 flex items-center border rd-md border-solid p-4">
+        <nuxt-link
+          class="m-4 aspect-square h-full w-auto flex items-center object-contain"
+          :href="`/properties/${property.id}`"
+        >
           <div
-          class="text-4xl"
+            class="text-4xl"
             :class="[
               property.type === 'house' ? 'i-mdi-home'
               : property.type === 'apartment' ? 'i-mdi-office-building'

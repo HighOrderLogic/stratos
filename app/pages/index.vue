@@ -4,13 +4,24 @@ const { data: properties } = await useFetch('/api/properties', { method: 'get' }
 
 <template>
   <div v-if="properties && properties.length > 0" class="gap-4 divide-gray">
-    <div>{{ properties }}</div>
     <template v-for="property in properties" :key="property.id">
-      <div>
-        <span>{{ property.id }}</span>
-        <span>{{ property.name }}</span>
-        <span>{{ property.dateCreated }}</span>
-        <span>{{ property.address }}</span>
+      <div class="my-4 flex border border-solid p-4 rd-md items-center">
+        <nuxt-link class="m-4 aspect-square h-full w-auto flex items-center object-contain" :href="`/properties/${property.id}`">
+          <div
+          class="text-4xl"
+            :class="[
+              property.type === 'house' ? 'i-mdi-home'
+              : property.type === 'apartment' ? 'i-mdi-office-building'
+                : 'i-mdi-home-modern',
+            ]"
+          />
+        </nuxt-link>
+        <div>
+          <div><span class="font-bold">Id:</span> {{ property.id }}</div>
+          <div><span class="font-bold">Property name:</span> {{ property.name }}</div>
+          <div><span class="font-bold">Date created:</span> {{ new Date(property.dateCreated).toUTCString() }}</div>
+          <div><span class="font-bold">Property address:</span> {{ property.address }}</div>
+        </div>
       </div>
     </template>
   </div>
@@ -42,7 +53,7 @@ const { data: properties } = await useFetch('/api/properties', { method: 'get' }
           </select>
           <label for="address">Address</label><input id="address" name="address">
         </form>
-        <base-button label="Submit" type="submit" form="new-property-form" />
+        <base-button label="Submit" type="submit" form="new-property-form" class="mt-4" />
       </template>
       <template #close>
         <base-button label="Close" />

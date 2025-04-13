@@ -1,7 +1,7 @@
 import { prefixStorage } from 'unstorage'
 
-export const storage = useStorage<Property>('app')
+export const storage = useStorage('app')
 
 export function usePropertiesDb() {
-  return prefixStorage(storage, 'properties:')
+  return prefixStorage<Property>(storage, 'properties:')
 }

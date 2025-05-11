@@ -27,10 +27,12 @@ export interface ModalSlots {
 <script setup lang="ts">
 const props = defineProps<ModalProps>()
 const slots = defineSlots<ModalSlots>()
+
+const open = defineModel({ default: false })
 </script>
 
 <template>
-  <dialog-root>
+  <dialog-root v-model:open="open">
     <dialog-trigger v-if="!!slots.default" as-child>
       <slot />
     </dialog-trigger>

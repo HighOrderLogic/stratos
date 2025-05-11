@@ -1,10 +1,47 @@
 <script setup lang="ts">
-const { data: properties } = await useFetch('/api/properties', { method: 'get' })
-properties.value?.sort((a, b) => {
-  const dateA = new Date(a.dateCreated).getTime()
-  const dateB = new Date(b.dateCreated).getTime()
-  return dateB - dateA
+const name = ref('')
+const owner = ref('')
+const type = ref('house')
+const address = ref('')
+
+const showModal = ref(false)
+
+const { data: properties, refresh: refreshProperties } = await useFetch('/api/properties', {
+  method: 'get',
+  transform: (data) => {
+    if (!Array.isArray(data)) {
+      return []
+    }
+    return data.sort((a, b) => {
+      const dateA = new Date(a.dateCreated).getTime()
+      const dateB = new Date(b.dateCreated).getTime()
+      return dateB - dateA
+    })
+  },
 })
+
+async function addProperty() {
+  const { error } = await useFetch('/api/properties', {
+    method: 'POST',
+    body: {
+      name: name.value,
+      owner: owner.value,
+      type: type.value,
+      address: address.value,
+    },
+  })
+
+  if (error.value) {
+    console.error('Error adding property:', error.value)
+  } else {
+    name.value = ''
+    owner.value = ''
+    type.value = 'house'
+    address.value = ''
+    showModal.value = false
+    await refreshProperties()
+  }
+}
 </script>
 
 <template>
@@ -30,18 +67,18 @@ properties.value?.sort((a, b) => {
     There is no property
   </div>
   <div class="block flex justify-end pt-4">
-    <base-modal title="New property" description="Add a new property to the database">
-      <base-button label="Add property" />
+    <!-- Assuming base-modal can be controlled with v-model:modelValue or a similar prop -->
+    <base-modal v-model:open="showModal" title="New property" description="Add a new property to the database">
+      <base-button label="Add property" @click="showModal = true" />
       <template #content>
         <form
           id="new-property-form"
-          action="/api/properties"
-          method="post"
           class="grid grid-cols-[auto_1fr] gap-2 [&>label]:(font-medium font-normal)"
+          @submit.prevent="addProperty"
         >
-          <label for="name">Name</label><input id="name" name="name">
-          <label for="owner">Owner</label><input id="owner" name="owner">
-          <label for="type">Type</label><select id="type" name="type">
+          <label for="name">Name</label><input id="name" v-model="name" name="name" required>
+          <label for="owner">Owner</label><input id="owner" v-model="owner" name="owner" required>
+          <label for="type">Type</label><select id="type" v-model="type" name="type">
             <option value="house">
               House
             </option>
@@ -52,12 +89,12 @@ properties.value?.sort((a, b) => {
               Villa
             </option>
           </select>
-          <label for="address">Address</label><input id="address" name="address">
+          <label for="address">Address</label><input id="address" v-model="address" name="address" required>
+          <base-button label="Submit" type="submit" class="col-span-2 mt-4 justify-self-start" />
         </form>
-        <base-button label="Submit" type="submit" form="new-property-form" class="mt-4" />
       </template>
       <template #close>
-        <base-button label="Close" />
+        <base-button label="Close" @click="showModal = false" />
       </template>
     </base-modal>
   </div>

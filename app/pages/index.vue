@@ -10,19 +10,12 @@ properties.value?.sort((a, b) => {
 <template>
   <div v-if="properties && properties.length > 0" class="gap-4 divide-gray">
     <template v-for="property in properties" :key="property.id">
-      <div class="my-4 flex items-center border rd-md border-solid p-4">
+      <div class="my-4 flex items-center gap-2 border rd-md border-solid p-4">
         <nuxt-link
-          class="m-4 aspect-square h-full w-auto flex items-center object-contain"
+          class="m-2 aspect-square h-full w-auto flex items-center object-contain"
           :href="`/properties/${property.id}`"
         >
-          <div
-            class="text-4xl"
-            :class="[
-              property.type === 'house' ? 'i-mdi-home'
-              : property.type === 'apartment' ? 'i-mdi-office-building'
-                : 'i-mdi-home-modern',
-            ]"
-          />
+          <property-image :type="property.type" />
         </nuxt-link>
         <div>
           <div><span class="font-bold">Id:</span> {{ property.id }}</div>

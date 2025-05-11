@@ -21,7 +21,8 @@ onMounted(async () => {
 <template>
   <div>
     <h1>Property ID: {{ id }}</h1>
-    <div v-if="property">
+    <property-image :type="property?.type || 'house'" class="float-right" />
+    <div v-if="property" class="clear-left">
       <h2>Details</h2>
       <p>Name: {{ property.name }}</p>
       <p>Owner: {{ property.owner }}</p>

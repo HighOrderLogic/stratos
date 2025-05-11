@@ -50,21 +50,34 @@ try {
         // scan($cursor, ['MATCH' => $pattern, 'COUNT' => $count])
         // For php-redis, the 'MATCH' and 'COUNT' options are passed as part of an options array or directly
         // The exact signature can vary slightly based on php-redis version, common is scan($iterator, $pattern, $count)
-        $keys = $redis->scan($iterator, $prefix . '*', 100); // Adjust COUNT as needed
+        // $iterator is passed by reference and updated by scan.
+        // scan returns an array of keys or FALSE on error.
+        $scanned_keys = $redis->scan($iterator, $prefix . '*', 100);
 
-        if (!empty($keys[1])) {
-            foreach ($keys[1] as $key) {
+        if ($scanned_keys === false) {
+            // An error occurred during scan. This might be caught by RedisException handler,
+            // but if scan simply returns false without an exception, we should stop.
+            // error_log("Redis scan returned false. Current iterator value: " . (is_null($iterator) ? 'null' : $iterator));
+            break; // Exit the do-while loop
+        }
+
+        if (!empty($scanned_keys)) { // Proceed if scan returned some keys
+            foreach ($scanned_keys as $key) { // Iterate directly over the array of keys
                 $propertyDataString = $redis->get($key);
-                if ($propertyDataString !== null) {
+                // php-redis get() returns FALSE if key does not exist or on error.
+                // It returns the string value otherwise.
+                if ($propertyDataString !== false) {
                     $property = json_decode($propertyDataString, true);
                     if (json_last_error() === JSON_ERROR_NONE) {
-                        // Extract ID from the key by removing the prefix
                         $id = substr($key, strlen($prefix));
                         $properties[] = array_merge(['id' => $id], $property);
                     } else {
-                        // Log or handle malformed JSON in Redis if necessary
-                        // For now, we'll skip it
+                        // Optional: Log malformed JSON data.
+                        // error_log("Failed to decode JSON for key '{$key}': " . json_last_error_msg());
                     }
+                } else {
+                    // Optional: Log if a key found by SCAN does not exist when GET is called (race condition or inconsistency).
+                    // error_log("Key '{$key}' found by SCAN was not retrievable with GET.");
                 }
             }
         }

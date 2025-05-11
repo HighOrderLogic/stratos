@@ -66,7 +66,7 @@ try {
                 $propertyDataString = $redis->get($key);
                 // php-redis get() returns FALSE if key does not exist or on error.
                 // It returns the string value otherwise.
-                if ($propertyDataString !== false) {
+                if ($propertyDataString !== false && $propertyDataString !== null) {
                     $property = json_decode($propertyDataString, true);
                     if (json_last_error() === JSON_ERROR_NONE) {
                         $id = substr($key, strlen($prefix));

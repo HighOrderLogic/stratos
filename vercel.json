@@ -2,6 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "yarn build",
   "cleanUrls": true,
-  "installCommand": "yarn install",
-  "outputDirectory": ".vercel/output"
+  "installCommand": "yarn install && composer install --no-dev --optimize-autoloader",
+  "outputDirectory": ".vercel/output",
+  "functions": {
+    "api/handler.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/php-handler",
+      "destination": "/api/handler.php"
+    }
+  ]
 }

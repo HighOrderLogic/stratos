@@ -1,0 +1,9 @@
+{
+  "name": "your-project-name/php-api",
+  "description": "PHP API handler for Nuxt project",
+  "type": "project",
+  "require": {
+    "predis/predis": "^3.0.0"
+  },
+  "minimum-stability": "stable"
+}

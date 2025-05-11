@@ -7,6 +7,9 @@
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.7.3"
+    },
+    "api/properties/*.php": {
+      "runtime": "vercel-php@0.7.3"
     }
   }
 }

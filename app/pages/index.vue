@@ -6,8 +6,8 @@ const address = ref('')
 
 const showModal = ref(false)
 
-const { data: properties, refresh: refreshProperties } = await useFetch('/api/properties', {
-  method: 'get',
+const { data: properties, refresh: refreshProperties } = await useFetch('/api/properties/get', {
+  method: 'GET',
   transform: (data) => {
     if (!Array.isArray(data)) {
       return []
@@ -21,7 +21,8 @@ const { data: properties, refresh: refreshProperties } = await useFetch('/api/pr
 })
 
 async function addProperty() {
-  const { error } = await useFetch('/api/properties', {
+  const { error } = await useFetch('/api/properties/add', {
+    // @ts-expect-error pee ate pee
     method: 'POST',
     body: {
       name: name.value,

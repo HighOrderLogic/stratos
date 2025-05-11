@@ -17,7 +17,7 @@
     "eslint": "^9.26.0",
     "nuxt": "npm:nuxt-nightly@latest",
     "reka-ui": "^2.2.1",
-    "sass-embedded": "^1.87.0",
+    "sass-embedded": "^1.88.0",
     "std-env": "^3.9.0",
     "typescript": "^5.8.3",
     "unstorage": "^1.16.0",

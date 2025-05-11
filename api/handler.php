@@ -11,20 +11,15 @@ header('Content-Type: application/json');
 $response = ['status' => 'error', 'message' => 'Unknown error'];
 
 try {
-    $redisHost = getenv('UPSTASH_REDIS_HOST');
-    $redisPort = getenv('UPSTASH_REDIS_PORT');
-    $redisPassword = getenv('UPSTASH_REDIS_PASSWORD');
+    $redisUrl = getenv('UPSTASH_REDIS_URL');
 
-    if (!$redisHost || !$redisPort || !$redisPassword) {
-        throw new Exception('Upstash Redis connection details not found in environment variables.');
+    if (!$redisUrl) {
+        throw new Exception('Upstash Redis URL (UPSTASH_REDIS_URL) not found in environment variables.');
     }
 
-    $redis = new PredisClient([
-        'scheme' => 'tls', // Upstash typically uses TLS
-        'host'   => $redisHost,
-        'port'   => (int)$redisPort,
-        'password' => $redisPassword,
-    ]);
+    // The $redisUrl should be a full DSN, e.g., rediss://:password@host:port or tls://:password@host:port
+    // Predis\Client can accept a DSN string directly.
+    $redis = new PredisClient($redisUrl);
 
     // Test connection
     $redis->ping();

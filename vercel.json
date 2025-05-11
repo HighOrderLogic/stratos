@@ -8,11 +8,5 @@
     "api/handler.php": {
       "runtime": "vercel-php@0.7.3"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/php-handler",
-      "destination": "/api/handler.php"
-    }
-  ]
+  }
 }

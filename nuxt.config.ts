@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  modules: ['@unocss/nuxt'],
+  modules: ['@unocss/nuxt', '@nuxt/content'],
   future: {
     compatibilityVersion: 4,
   },

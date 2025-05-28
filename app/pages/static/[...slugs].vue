@@ -13,7 +13,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <ContentRenderer v-if="page" :value="page" />
+  <content-renderer v-if="page" :value="page" />
   <div v-else>
     Page not found.
   </div>

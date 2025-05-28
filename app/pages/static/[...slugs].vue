@@ -3,7 +3,7 @@ const route = useRoute()
 
 const { data: page } = await useAsyncData(
   `static-${route.path}`,
-  () => queryCollection('static').path(route.path).first(),
+  () => queryCollection('staticPage').path(route.path).first(),
 )
 
 useSeoMeta({

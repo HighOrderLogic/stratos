@@ -35,8 +35,23 @@ echo <<<HTML
 </head>
 <body>
     <div class="container">
-        <h1>Hello from PHP on Vercel!</h1>
         <p>This is a simple HTML page served by a PHP script.</p>
+        <h2>Our Team</h2>
+        <div>
+            <h3>John Doe</h3>
+            <p>Role: Lead Developer</p>
+            <p>Bio: John is a passionate developer with 10 years of experience.</p>
+        </div>
+        <div>
+            <h3>Jane Smith</h3>
+            <p>Role: Project Manager</p>
+            <p>Bio: Jane keeps our projects on track and ensures client satisfaction.</p>
+        </div>
+        <div>
+            <h3>Mike Brown</h3>
+            <p>Role: UI/UX Designer</p>
+            <p>Bio: Mike creates stunning and user-friendly interfaces.</p>
+        </div>
     </div>
 </body>
 </html>

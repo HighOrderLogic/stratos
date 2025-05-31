@@ -12,6 +12,9 @@
         <nuxt-link href="/static/introduction">
           Introduction
         </nuxt-link>
+        <nuxt-link href="/api/php/page">
+          Team members
+        </nuxt-link>
         <nuxt-link href="/static/tos">
           Term of Service
         </nuxt-link> <nuxt-link href="/static/contact">

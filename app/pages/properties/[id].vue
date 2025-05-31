@@ -3,7 +3,7 @@ const property = ref<Property | undefined>(undefined)
 const id = useRoute().params.id
 
 async function fetchProperty() {
-  const { data } = await useFetch(`/api/properties/${id}`)
+  const { data } = await useFetch(`/js/properties/${id}`)
 
   if (data.value) {
     property.value = {

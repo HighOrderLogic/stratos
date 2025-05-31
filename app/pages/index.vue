@@ -21,7 +21,7 @@ const { data: properties, refresh: refreshProperties } = await useFetch('/api/pr
 })
 
 async function addProperty() {
-  const { error } = await useFetch('/api/properties', {
+  const { error } = await useFetch('/js/properties', {
     method: 'POST',
     body: {
       name: name.value,

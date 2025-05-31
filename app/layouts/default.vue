@@ -12,7 +12,7 @@
         <nuxt-link href="/static/introduction">
           Introduction
         </nuxt-link>
-        <nuxt-link href="/api/php/page">
+        <nuxt-link href="/api/php/page.php" target="_blank">
           Team members
         </nuxt-link>
         <nuxt-link href="/static/tos">

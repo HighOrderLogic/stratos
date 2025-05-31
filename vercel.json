@@ -3,5 +3,10 @@
   "buildCommand": "yarn build",
   "cleanUrls": true,
   "installCommand": "yarn install",
-  "outputDirectory": ".vercel/output"
+  "outputDirectory": ".vercel/output",
+  "functions": {
+    "api/php/*.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  }
 }

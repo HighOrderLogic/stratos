@@ -12,11 +12,8 @@ async function login() {
   )
 
   if (status.value === 'success') {
-    cookie.value = {
-      id: data.value?.id as number,
-      username: username.value as string,
-      password: password.value as string,
-    }
+    cookie.value = { 
+      id: data.value!.id, username: username.value as string, password: password.value as string }
     await navigateTo('/user')
   }
 }

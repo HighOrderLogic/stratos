@@ -5,15 +5,16 @@ if (!userCookie.value) {
   await navigateTo('/login')
 }
 
-function logout() {
+async function logout() {
   userCookie.value = undefined
+  await navigateTo('/')
 }
 </script>
 
 <template>
   <div>Hi {{ userCookie!.username }}</div>
-  <div><base-button label="Logout" @click="logout" /></div>
-  <nuxt-link href="/user/setting">
+  <div class="pt-4"><base-button label="Logout" @click="logout" /></div>
+  <nuxt-link href="/user/setting" class="pt-4">
     Setting
   </nuxt-link>
 </template>

@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   return rows.map(r => ({
     id: r.id,
     content: r.content,
-    createdAt: new Date(r.create_at as string),
+    createdAt: new Date(r.created_at as string),
     authorId: r.by_user,
   }))
 })

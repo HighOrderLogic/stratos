@@ -35,8 +35,7 @@ echo <<<HTML
 </head>
 <body>
     <div class="container">
-        <p>This is a simple HTML page served by a PHP script.</p>
-        <h2>Our Team</h2>
+        <h2>Our Stratos Team</h2>
         <div>
             <h3>John Doe</h3>
             <p>Role: Lead Developer</p>

@@ -17,7 +17,7 @@ const userCookie = useUserCookie()
           Introduction
         </nuxt-link>
         <nuxt-link href="/api/php/page.php" target="_blank">
-          Team members
+          Team members (PHP)
         </nuxt-link>
         <nuxt-link href="/static/tos">
           Term of Service

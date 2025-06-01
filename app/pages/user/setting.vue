@@ -8,25 +8,24 @@ if (!userCookie.value) {
 const username = ref<string>()
 
 async function changeUsername() {
-    const { data, status } = await useFetch('/js/users/change-username', {
-        method: 'POST',
-        body: {
-            id: userCookie.value!.id,
-            newUsername: username.value
-        }
-    })
+  const { data, status } = await useFetch('/js/users/change-username', {
+    method: 'POST',
+    body: {
+      id: userCookie.value!.id,
+      newUsername: username.value,
+    },
+  })
 
-    if (status.value == 'success') {
-        userCookie.value!.username = data.value!.username
-    }
+  if (status.value === 'success') {
+    userCookie.value!.username = data.value!.username
+  }
 }
 </script>
 
 <template>
   <div>User setting</div>
   <div class="pt-4">
-    <div>New username</div>
-        <form
+    <form
       id="login-form"
       class="grid grid-cols-[auto_1fr] gap-2 [&>label]:(font-medium font-normal)"
       @submit.prevent="changeUsername"

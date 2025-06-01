@@ -67,7 +67,6 @@ async function addProperty() {
     There is no property
   </div>
   <div class="block flex justify-end pt-4">
-    <!-- Assuming base-modal can be controlled with v-model:modelValue or a similar prop -->
     <base-modal v-model:open="showModal" title="New property" description="Add a new property to the database">
       <base-button label="Add property" @click="showModal = true" />
       <template #content>

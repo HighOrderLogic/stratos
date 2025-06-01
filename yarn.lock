@@ -12448,6 +12448,7 @@ __metadata:
     typescript: "npm:^5.8.3"
     unstorage: "npm:^1.16.0"
     uuid: "npm:^11.1.0"
+    zod: "npm:^3.25.46"
   languageName: unknown
   linkType: soft
 
@@ -15111,6 +15112,13 @@ __metadata:
   version: 3.25.31
   resolution: "zod@npm:3.25.31"
   checksum: 10c0/c519ebc5f06f42d49afa71fd4e2c838f7e7301db0aa3af1570b58518a4e6052d7f9d67dc3aab5f0f61a5e769bc58ec5c785d797f61a4a705f476d969ce68e932
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.25.46":
+  version: 3.25.46
+  resolution: "zod@npm:3.25.46"
+  checksum: 10c0/2cc754a49244f9d80ef50c0da8e01136e0202a9fa92229bcfef2b8285ca07f865bcdd17f0fb609219bd91a2de7965b9a27627cd456e151924144d7a06c6d6686
   languageName: node
   linkType: hard
 

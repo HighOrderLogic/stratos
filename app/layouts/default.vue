@@ -1,9 +1,5 @@
 <script setup lang="ts">
 const userCookie = useUserCookie()
-
-function logout() {
-  userCookie.value = undefined
-}
 </script>
 
 <template>
@@ -32,11 +28,9 @@ function logout() {
         <nuxt-link v-if="!userCookie" href="/login">
           Login
         </nuxt-link>
-        <div v-else>
-          <button @click="logout">
-            Logout
-          </button>
-        </div>
+        <nuxt-link v-else href="/user">
+          Profile
+        </nuxt-link>
       </div>
     </header>
     <div class="mx-a pt-4 md:max-w-60ch lt-md:px-4">

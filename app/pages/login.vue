@@ -6,13 +6,17 @@ const username = ref<string>()
 const password = ref<string>()
 
 async function login() {
-  const { status } = await useFetch(
+  const { status, data } = await useFetch(
     '/js/users/login',
     { method: 'POST', body: { username: username.value, password: password.value } },
   )
 
   if (status.value === 'success') {
-    cookie.value = { username: username.value as string, password: password.value as string }
+    cookie.value = {
+      id: data.value?.id as number,
+      username: username.value as string,
+      password: password.value as string,
+    }
     await navigateTo('/user')
   }
 }

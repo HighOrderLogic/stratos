@@ -18,6 +18,7 @@ async function changeUsername() {
 
   if (status.value === 'success') {
     userCookie.value!.username = data.value!.username
+    await navigateTo('/user')
   }
 }
 </script>

@@ -7,7 +7,7 @@ const address = ref('')
 const showModal = ref(false)
 
 const { data: properties, refresh: refreshProperties } = await useFetch('/js/properties', {
-  method: 'get',
+  method: 'GET',
   transform: (data) => {
     if (!Array.isArray(data)) {
       return []

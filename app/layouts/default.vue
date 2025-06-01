@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const userCookie = useUserCookie()
+
+function logout() {
+  userCookie.value = undefined
+}
+</script>
+
 <template>
   <div class="font-normal font-[Inter_Variable] prose-neutral">
     <header
@@ -17,9 +25,18 @@
         </nuxt-link>
         <nuxt-link href="/static/tos">
           Term of Service
-        </nuxt-link> <nuxt-link href="/static/contact">
+        </nuxt-link>
+        <nuxt-link href="/static/contact">
           Contact Us
         </nuxt-link>
+        <nuxt-link v-if="!userCookie" href="/login">
+          Login
+        </nuxt-link>
+        <div v-else>
+          <button @click="logout">
+            Logout
+          </button>
+        </div>
       </div>
     </header>
     <div class="mx-a pt-4 md:max-w-60ch lt-md:px-4">

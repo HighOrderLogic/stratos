@@ -33,7 +33,8 @@ async function login() {
       @submit.prevent="login"
     >
       <label for="name">Name</label><input id="name" v-model="username" name="username" required>
-      <label for="owner">Owner</label><input id="owner" v-model="password" name="password" type="password" required>
+      <label for="password">Password</label>
+      <input id="password" v-model="password" name="password" type="password" required>
       <base-button label="Login" type="submit" class="col-span-2 mt-4 justify-self-start" />
     </form>
   </div>

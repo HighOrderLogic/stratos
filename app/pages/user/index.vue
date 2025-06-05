@@ -54,7 +54,7 @@ async function newRequest() {
     </div>
     <template v-else>
       <div v-for="req in repairRequests" :key="req.content" class="pt-2">
-        <div>Created at {{ req.createdAt }}</div>
+        <div>Created at {{ new Date(req.createdAt).toUTCString() }}</div>
         <div>Content: {{ req.content }}</div>
       </div>
     </template>
